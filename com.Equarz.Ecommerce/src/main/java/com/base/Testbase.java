@@ -23,7 +23,7 @@ public class Testbase {
 
 		try {
 			file = new FileInputStream("./src/main/java/com/PropertiesConfig/Propfile");
-		} catch (FileNotFoundException e) {
+					} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -54,10 +54,10 @@ public class Testbase {
 
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
-		driver.get(props.getProperty("url"));
+		driver.get(props.getProperty("urlup"));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-		driver.manage().deleteAllCookies();
-		
+		//driver.manage().deleteAllCookies();
+
 		
 	}
 }
