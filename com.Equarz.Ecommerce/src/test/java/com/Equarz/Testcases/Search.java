@@ -46,6 +46,7 @@ public class Search  extends Testbase{
 		//sp.Searchprod();
 			
 			bc.Bannercart1();
+			
 	}
 		
 		

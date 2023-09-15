@@ -16,9 +16,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.base.Testbase;
 
 public class SearchProduct extends Testbase {
-	@FindBy(xpath ="//button[@class='close __close']")
-	WebElement Ad;
-	
+//	@FindBy(xpath ="//button[@class='close __close']")
+//	WebElement Ad;
+
 	
 	@FindBy(xpath ="//input[@placeholder='Search here ...']")
 	WebElement searchbox;
@@ -42,7 +42,7 @@ public class SearchProduct extends Testbase {
 	}
 	
 	public productpage Searchprod () throws Exception {
-		Ad.click();
+		//Ad.click();
 		searchbox.sendKeys(props.getProperty("searchboxtext"));
 		searchbutton.click();
 		prod.clear();

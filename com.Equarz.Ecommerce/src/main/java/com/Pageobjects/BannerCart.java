@@ -14,8 +14,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import com.base.Testbase;
 
 public class BannerCart extends Testbase {
-	@FindBy(xpath ="//button[@class='close __close']")
-	WebElement Ad1;
+//	@FindBy(xpath ="//button[@class='close __close']")
+//	WebElement Ad1;
 	
 	@FindBy(xpath = "//li[@data-slide-to='2']")
 	WebElement slide;
@@ -40,7 +40,7 @@ public class BannerCart extends Testbase {
 	}
 	
 	public void Bannercart1() {
-		Ad1.click();
+		//Ad1.click();
 		slide.click();
 //		WebDriverWait wait= new WebDriverWait(driver, Duration.ofSeconds(15));
 //		wait.until(ExpectedConditions.visibilityOf(banner));

@@ -5,7 +5,7 @@
     <classes>
       <class name="com.Equarz.Testcases.Search">
         <methods>
-          <include name="verfy"/>
+          <include name="Verifysearch1"/>
           <include name="Intialzation"/>
           <include name="clos"/>
         </methods>
