@@ -22,7 +22,7 @@ Login_Functionality lg;
 		lg=new Login_Functionality(driver);
 	}
 	@Test
-	public void verifylog() {
+	public void verifylog() throws Throwable {
 		lg.validateLogin();
 		String url=driver.getCurrentUrl();
 		Assert.assertEquals("http://e-quarz.com/", url);
@@ -34,7 +34,7 @@ Login_Functionality lg;
 		driver.close();
 	}
 	@Test
-	public void verifyurl() {
+	public void verifyurl() throws Throwable {
 		lg.validateLogin();
 		String url=driver.getCurrentUrl();
 		Assert.assertEquals("http://e-quarz.com/", url);

@@ -7,6 +7,8 @@
         <methods>
           <include name="Registration"/>
           <include name="initialization"/>
+          <include name="Givenurl"/>
+          <include name="shutdown"/>
         </methods>
       </class> <!-- com.Equarz.Testcases.SignupTest -->
     </classes>

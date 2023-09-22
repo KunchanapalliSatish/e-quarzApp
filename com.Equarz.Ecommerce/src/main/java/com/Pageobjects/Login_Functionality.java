@@ -18,7 +18,7 @@ public class Login_Functionality extends Testbase {
 	@FindBy(id="si-password")
 	WebElement pass;
 	
-	String str=JOptionPane.showInputDialog("enter captcha");
+	//String str=JOptionPane.showInputDialog("enter captcha");
 	@FindBy(xpath="//input[@placeholder='Enter captcha value']")
 	WebElement captch;
 	
@@ -30,10 +30,10 @@ public class Login_Functionality extends Testbase {
 		PageFactory.initElements(driver, this);
 		
 	}
-	public Homepage validateLogin()  {
+	public Homepage validateLogin() throws InterruptedException  {
 		User.sendKeys(props.getProperty("username"));
 		pass.sendKeys(props.getProperty("password"));
-		captch.sendKeys(str);
+		Thread.sleep(15000);
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
