@@ -1,8 +1,9 @@
 browser=chrome
 url1=http://e-quarz.com/customer/auth/sign-up
 url=http://e-quarz.com/customer/auth/login
-username=jakkamsairam3@gmail.com
-password=Namo@12345
+username=chakrivineesh@gmail.com
+password=Vishnu@1969
+
 
 Firstname= Satish 
 
@@ -14,5 +15,6 @@ Password= Equarz5#
 	
 ConfirmPassword= Equarz5#
 searchboxtext=laptop
+prod=AEROPOSTALE Women's Slim Fit Jeans
 	
 	

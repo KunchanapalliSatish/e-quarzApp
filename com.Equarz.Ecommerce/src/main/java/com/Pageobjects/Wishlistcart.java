@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.base.Testbase;
 
-public class Wishlist extends Testbase{
+public class Wishlistcart extends Testbase{
 	
 	@FindBy(xpath ="//button[@class='close __close']")
 	WebElement Ad1;
@@ -31,7 +31,7 @@ public class Wishlist extends Testbase{
 	@FindBy(xpath = "//div[@class='toast toast-success']")
 	WebElement success;
 	
-	public  Wishlist (WebDriver driver) {
+	public  Wishlistcart (WebDriver driver) {
 
 		PageFactory.initElements(driver, this);
 	}

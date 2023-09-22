@@ -10,8 +10,9 @@ import com.Pageobjects.Footerbanner;
 import com.Pageobjects.Homesearch;
 import com.Pageobjects.Login_Functionality;
 import com.Pageobjects.SearchProduct;
-import com.Pageobjects.Wishlist;
+import com.Pageobjects.Wishlistcart;
 import com.base.Testbase;
+
 
 public class cart  extends Testbase{
 	Login_Functionality LF;
@@ -20,7 +21,7 @@ public class cart  extends Testbase{
 	CategoryCart Cat;
 	BannerCart bc;
 	Footerbanner fb;
-	Wishlist ws;
+	Wishlistcart ws;
 	
 	public  cart () {
 		super();
@@ -35,7 +36,7 @@ public class cart  extends Testbase{
 		Cat = new CategoryCart(driver);
 		bc= new BannerCart(driver);
 		fb = new Footerbanner(driver);
-		ws= new Wishlist(driver);
+		ws= new Wishlistcart(driver);
 		LF.logindata();
 
 

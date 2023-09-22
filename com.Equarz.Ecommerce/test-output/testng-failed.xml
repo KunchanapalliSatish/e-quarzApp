@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Equarz.Testcases.Search">
+      <class name="com.Equarz.Testcases.WishList">
         <methods>
-          <include name="Verifysearch1"/>
+          <include name="removewishlist"/>
           <include name="Intialzation"/>
-          <include name="clos"/>
         </methods>
-      </class> <!-- com.Equarz.Testcases.Search -->
+      </class> <!-- com.Equarz.Testcases.WishList -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
