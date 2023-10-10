@@ -26,7 +26,17 @@ package com.Equarz.Testcases;
 		@Test
 		public void Buynow() throws Throwable
 		{
-			 bf.Buynow();
+			 bf.cartBuynow ();
+		}
+		@Test
+		public void Buynow1() throws Throwable
+		{
+			 bf.Directbuynow ();
+		}
+		@Test
+		public void Buynow2() throws Throwable
+		{
+			 bf.Homecartbuynow ();
 		}
 	}
 

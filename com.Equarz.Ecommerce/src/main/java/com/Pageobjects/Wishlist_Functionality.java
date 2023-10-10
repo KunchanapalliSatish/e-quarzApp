@@ -5,6 +5,7 @@ import static org.testng.Assert.assertTrue;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,7 +16,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.base.Testbase;
 
 public class Wishlist_Functionality extends Testbase {
-	int i, j;
+	int i, j,k;
 
 	@FindBy(xpath = " (//span[text()='Books'])[1]")
 	WebElement category;
@@ -61,7 +62,8 @@ public class Wishlist_Functionality extends Testbase {
 	List<WebElement> popup;
 	@FindBy(xpath = "//button[text()='OK']")
 	WebElement ok;
-
+	@FindBy(xpath = "//div[@class='card __card __card-mobile-340 mb-3']")
+	List<WebElement> wishlistset;
 	public Wishlist_Functionality(WebDriver driver) {
 
 		PageFactory.initElements(driver, this);
@@ -144,4 +146,43 @@ public class Wishlist_Functionality extends Testbase {
     	j=Integer.parseInt(str1);
 	   assertEquals(j,i);
 	}
+	public Homepage remove() throws Throwable
+    {
+ 	   footban.click();
+		   prdt.click();
+		   wishlist.click();
+		   Thread.sleep(3000);
+		   String str=wishcount.getText();
+	    	k=Integer.parseInt(str);
+	    	k=k-1;
+		   icon.click();
+		   int wishlistcount=wishlistset.size();
+		   System.out.println(wishlistcount);
+		   String beforeXpathprod ="//div[@class='card __card __card-mobile-340 mb-3'][";
+			  String afterXpathprod  = "]";
+			  String beforeXpathremove ="(//i[@class='czi-close-circle'])[";
+			  String afterXpathremove = "]";
+			  
+			  for(i=1;i<=wishlistcount;i++)
+			  {
+				  String ActualXpath= beforeXpathprod + i + afterXpathprod;
+				  WebElement element= driver.findElement(By.xpath(ActualXpath));
+				  System.out.println(element.getText());
+
+				  
+				  if(element.getText().contains(props.getProperty("prod")))
+				  {
+					  String actualremove=beforeXpathremove+i+afterXpathremove;
+					   WebElement remove=driver.findElement(By.xpath(actualremove));
+					   remove.click();
+					   Thread.sleep(2000);
+					   driver.navigate().refresh();
+				  }
+				  
+    }
+			  String str1=wishcount.getText();
+		    	j=Integer.parseInt(str1);
+			   assertEquals(j,k);
+		   return new Homepage();
+    }
 }

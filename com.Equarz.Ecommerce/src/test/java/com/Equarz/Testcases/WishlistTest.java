@@ -1,5 +1,6 @@
 package com.Equarz.Testcases;
 
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -16,19 +17,20 @@ public class WishlistTest extends Testbase {
 			super();
 		}
 		
-//		@BeforeClass
-//		public void open()
-//		{
-//			lg= new Login_Functionality(driver);
-//			lg.validateLogin();
-//		}
+		@BeforeClass
+		public void open() throws Throwable
+		{
+			Setup();
+			lg= new Login_Functionality(driver);
+			lg.validateLogin();
+		}
 		@BeforeMethod
 		public void initialize() throws Throwable {
 			
-			Setup();
-			lg= new Login_Functionality(driver);
-			//lg.validateLogin(props.getProperty("username"),props.getProperty("password"));
-			lg.validateLogin();
+			//Setup();
+//			lg= new Login_Functionality(driver);
+//			//lg.validateLogin(props.getProperty("username"),props.getProperty("password"));
+//			lg.validateLogin();
 			 wl = new Wishlist_Functionality(driver);
 		
 		}
@@ -38,7 +40,7 @@ public class WishlistTest extends Testbase {
 		{
 			wl.categorylist();
 		}
-		@Test
+		@Test(priority=1)
 		public void bannerwishlist() throws Throwable 
 		{
 			wl.bannerlist();
@@ -62,5 +64,10 @@ public class WishlistTest extends Testbase {
 		public void deallist() throws Throwable
 		{
 			wl.dealoflist();
+		}
+		@Test
+		public void removeproduct() throws Throwable
+		{
+			wl.remove();
 		}
 }

@@ -1,76 +1,143 @@
 package com.Pageobjects;
 
-	import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertEquals;
 
-	import org.openqa.selenium.JavascriptExecutor;
-	import org.openqa.selenium.WebDriver;
-	import org.openqa.selenium.WebElement;
-	import org.openqa.selenium.interactions.Actions;
-	import org.openqa.selenium.support.FindBy;
-	import org.openqa.selenium.support.PageFactory;
+import java.time.Duration;
 
-	import com.Utils.Utils;
-	import com.base.Testbase;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-	public class Buynow_Functionality  extends Testbase{
-		@FindBy(xpath="//a[@href='http://e-quarz.com/product/earpods-boat-W0CoIT']")
-		WebElement product;
-		
-		@FindBy(xpath="//span[text()='Buy now']")
-		WebElement buynow;
-		@FindBy(xpath="//select[@class='form-control']")
-		WebElement chooseshippingmethod;
-		Utils ul;
-		
-		//@FindBy(xpath="//select[@class='form-control']")
-	    //WebElement companyvehicle;
-		@FindBy(id="order_note")
-		WebElement  ordernote;
-		@FindBy (xpath="//a[@class='btn btn--primary']")
-		WebElement continueshopping;
-		
-		@FindBy(xpath="//a[@onclick='checkout()']")
-		WebElement checkout;
-		
-	public Buynow_Functionality (WebDriver driver) {
-			
-			PageFactory.initElements(driver, this);
-		}
-	 
+import com.base.Testbase;
 
-	         public Homepage Buynow( ) throws Throwable {
-	        	JavascriptExecutor js =(JavascriptExecutor)driver;
-	    		  js.executeScript("window.scrollBy(0,1100)","");
-	    		
-	        	 product.click();
-	        	 Thread.sleep(2000);
-	        	 buynow.click();
-	        	 
-	        	
-	        	// Actions act =new Actions(driver);
-	     		//act.moveToElement(buynow).build().perform();
-	     		
-	     		//JavascriptExecutor js =(JavascriptExecutor)driver;
-	     		  //js.executeScript("window.scrollBy(0,550)","");
-	     		
-	     		//cartQuantity.click();
-	     		chooseshippingmethod.click();
-	     		ul=new Utils ();
-	     		ul.dropdown(chooseshippingmethod, "2");
-	     		//ordernote.click();
-	     	JavascriptExecutor jd =(JavascriptExecutor)driver;
-	  		  jd.executeScript("window.scrollBy(0,500)","");
+public class Buynow_Functionality extends Testbase {
+	
+	@FindBy(xpath = "//span[text()='Electronics']")
+	WebElement elec;
+	
+	@FindBy(xpath = "//span[text()='Mobile Accessoires']")
+	WebElement elec2;
+	
+	@FindBy(xpath = "//a[text()='Cases And Covers']")
+	WebElement elec3;
+	
+	@FindBy(xpath = "//img[@src='http://e-quarz.com/storage/app/public/product/thumbnail/2023-06-22-64945be4d2044.png']")
+	WebElement prodt;
+	
+	@FindBy(xpath = "//span[text()='Add to cart']")
+	WebElement cart;
+	
+	@FindBy(xpath = "//i[@class='navbar-tool-icon czi-cart']")
+	WebElement cartarrow;
+	
+	@FindBy(xpath = "//a[@href='http://e-quarz.com/checkout-details']")
+	WebElement checkout;
+	
+	@FindBy(xpath = "//select[@class='form-control']")
+	WebElement shipping;
+	
+	@FindBy(xpath = "//a[@class='btn btn--primary pull-right']")
+	WebElement checkout2;
+	
+	@FindBy(id  = "same_as_shipping_address")
+	WebElement sameadress;
+	
+	@FindBy(xpath = "//span[text()='Proceed payment']")
+	WebElement payment;
+	
+	@FindBy(xpath = "//h5[@class='font-black __text-20px']")
+	WebElement orderplaced;
+	
+	@FindBy(xpath  ="(//button[@class='btn btn-block click-if-alone'])[1]")
+	WebElement COD;
+	
+	@FindBy(xpath ="//input[@placeholder='Search here ...']")
+	WebElement searchbox;
+	
+	@FindBy(xpath="//i[@class='czi-search text-white']")
+	WebElement searchbutton;
+	
+	@FindBy(name  = "//a[@href='http://e-quarz.com/product/hp-247-g8-laptop-amd-athlon-p-3045b-hd-14-inches355cm-hd-8gb-ram-ddr4-1tb-hddwindows-11-home-w11-sl-one-year-warranty-bl']")
+	WebElement prod;
+	
+	@FindBy(xpath = "//span[text()='Buy now']")
+	WebElement Buynowbutton;
+	
+	public  Buynow_Functionality (WebDriver driver) {
 
-	   		  
-	     		continueshopping.click();
-	     		checkout.click();
-	    		return new Homepage();
-
-	     		
-	     		
-	         }
-		
-
+		PageFactory.initElements(driver, this);
 	}
+	
+	public void cartBuynow () throws Exception {
+		
+		Actions ac= new Actions(driver);
+		 ac.moveToElement(elec).build().perform();
+		 ac.moveToElement(elec2).build().perform();
+		 elec3.click();
+		 prodt.click();
+		 cart.click();
+		 Thread.sleep(2000);
+		 ac.moveToElement(cartarrow).build().perform();
+		 checkout.click();
+		 Select sc = new Select(shipping);
+		 sc.selectByIndex(1);
+		 Thread.sleep(2000);
+		 checkout2.click();
+		 sameadress.click();
+		 payment.click();
+		 Thread.sleep(3000);
+		 COD.click();
+		 wait= new WebDriverWait(driver, Duration.ofSeconds(20));
+		 String msg=wait.until(ExpectedConditions.visibilityOf(orderplaced)).getText();
+	 	assertEquals(msg, "Your order has been placed successfully! !");
+		 
 
-
+		}
+	
+	public void Directbuynow () throws Exception {
+		searchbox.sendKeys(props.getProperty("searchboxtext"));
+		searchbutton.click();
+		prod.click();
+		Thread.sleep(3000);
+		Buynowbutton.click();
+		sameadress.click();
+		payment.click();
+		COD.click();
+		
+		}
+	public void Homecartbuynow() throws Exception {
+		Actions ac= new Actions(driver);
+		ac.moveToElement(cartarrow).build().perform();
+		 checkout.click();
+		 Select sc = new Select(shipping);
+		 sc.selectByIndex(1);
+		 Thread.sleep(2000);
+		 checkout2.click();
+		 sameadress.click();
+		 payment.click();
+		 Thread.sleep(3000);
+		 COD.click();
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+      
+}

@@ -10,12 +10,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Testbase {
 
 	FileInputStream file;
 	public static Properties props;
 	public static WebDriver driver;
+	public static WebDriverWait wait;
 
 	public Testbase() {
 		
@@ -54,7 +56,7 @@ public class Testbase {
 
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
-		driver.get(props.getProperty("urlup"));
+		driver.get(props.getProperty("url"));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 		//driver.manage().deleteAllCookies();
 

@@ -16,12 +16,12 @@ public class Utils extends Testbase {
 
 	@DataProvider
 
-	public String[][] setdata() throws Throwable {
+	public static String[][] setdata(String sheetname) throws Throwable {
 
 		File file = new File("C:\\Users\\sree\\git\\Eccomerce_Project\\com.Equarz.Ecommerce\\src\\main\\java\\com\\testdata\\Registration data.xlsx");
 		FileInputStream stream = new FileInputStream(file);
 		XSSFWorkbook workbook = new XSSFWorkbook(stream);
-		XSSFSheet sheet = workbook.getSheetAt(0);
+		XSSFSheet sheet = workbook.getSheet(sheetname);
 
 		int rows = sheet.getPhysicalNumberOfRows();
 		int columns = sheet.getRow(1).getLastCellNum();
