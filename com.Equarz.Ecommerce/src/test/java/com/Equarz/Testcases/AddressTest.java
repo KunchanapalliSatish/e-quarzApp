@@ -14,6 +14,7 @@ public class AddressTest extends Testbase{
 	Address_functionality Af;
 	Utils uts;
 	private final String sheetname="Address";
+	private final String sheetname1="EditAddress";
 	public AddressTest()
 	{
 		super();
@@ -22,6 +23,10 @@ public class AddressTest extends Testbase{
 	public String[][] setdata1() throws Throwable {
 return uts.setdata(sheetname);
 	}
+	@DataProvider
+	public String[][] setdata2() throws Throwable {
+return uts.setdata(sheetname1);
+}
 	@BeforeClass
 	public void initialise() throws Throwable
 	{
@@ -38,4 +43,16 @@ return uts.setdata(sheetname);
 		Af.Addressselection(personname1,phonenumber1,cityname1,
 				pincode1,addressofperson1);	
 	}
+	@Test(priority = 2,dataProvider = "setdata2",dataProviderClass = AddressTest.class)
+	public void editing(String personname2,String phonenumber2,String cityname2,
+			String pincode2,String addressofperson2) throws Throwable
+{
+Af.editaddress(personname2,phonenumber2,cityname2,
+		pincode2,addressofperson2);	
+}
+@Test
+	public void del() throws Throwable
+{
+Af.deleteaddress();	
+}
 }

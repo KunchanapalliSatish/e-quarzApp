@@ -6,7 +6,7 @@
       <class name="com.Equarz.Testcases.AddressTest">
         <methods>
           <include name="initialise"/>
-          <include name="address1" invocation-numbers="0"/>
+          <include name="editing" invocation-numbers="1 2 3"/>
         </methods>
       </class> <!-- com.Equarz.Testcases.AddressTest -->
     </classes>
