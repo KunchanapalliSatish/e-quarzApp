@@ -1,48 +1,43 @@
 package com.Equarz.Testcases;
 
-import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import com.Pageobjects.Banner_Functionality;
-import com.Pageobjects.Categories_Functionality;
 import com.Pageobjects.Login_Functionality;
-import com.Pageobjects.Search_functionality;
+import com.Pageobjects.Searchdrop_Functionality;
 import com.base.Testbase;
 
-public class SearchTest extends Testbase{
-Login_Functionality Login;
-Categories_Functionality category1;
-Search_functionality product;
-Banner_Functionality banner1;
+public class SearchTest extends Testbase {
+	Searchdrop_Functionality sf;
+	Login_Functionality Login;
 
-	
 	public SearchTest() {
 		super();
-		
+
 	}
-	@BeforeMethod
-	
-	public void initialize() {
+
+	@BeforeClass
+	public void initialize() throws Throwable {
 		Setup();
-		Login=new Login_Functionality(driver);
-		category1=new Categories_Functionality(driver);
-		//product=new Search_functionality(driver);
-		//banner1=new Banner_Functionality(driver);
-	}
-	@Test
-	public void cat() throws Exception {
+		Login = new Login_Functionality(driver);
+		sf = new Searchdrop_Functionality(driver);
 		Login.validateLogin();
-		category1.Category_product(driver);
-		//product.Search_product();
-		//banner1.Banner_add(driver);
-		
 	}
-	@AfterMethod
-	public void shutdown() 
-	{
+
+	@Test
+	public void search1() throws Throwable {
+		sf.search();
+	}
+
+	@Test
+	public void drop() throws Throwable {
+		sf.dropdown();
+	}
+
+	@AfterClass
+	public void shutdown() {
 		driver.close();
 	}
-	
 
 }

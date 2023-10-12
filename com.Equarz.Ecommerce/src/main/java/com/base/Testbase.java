@@ -5,12 +5,15 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.Duration;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.aventstack.extentreports.ExtentReports;
 
 public class Testbase {
 
@@ -19,9 +22,11 @@ public class Testbase {
 	public static WebDriver driver;
 	public static WebDriverWait wait;
 
+
 	public Testbase() {
 		
 		props = new Properties();
+		//ExtentReports
 
 		try {
 			file = new FileInputStream("./src/main/java/com/PropertiesConfig/Propfile");
@@ -41,6 +46,7 @@ public class Testbase {
 		String browsername = props.getProperty("browser");
 
 		if (browsername.equalsIgnoreCase("chrome")) {
+			System.setProperty("webdriver.chrome.driver","C:\\Users\\Admin\\Downloads\\chromedriver-win64 (1)\\chromedriver-win64\\chromedriver.exe");
 
 			driver = new ChromeDriver();
 		}
@@ -55,9 +61,9 @@ public class Testbase {
 		}
 
 		driver.manage().window().maximize();
-		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
+		driver.manage().timeouts().pageLoadTimeout(15,TimeUnit.SECONDS);
 		driver.get(props.getProperty("url"));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		//driver.manage().deleteAllCookies();
 
 		

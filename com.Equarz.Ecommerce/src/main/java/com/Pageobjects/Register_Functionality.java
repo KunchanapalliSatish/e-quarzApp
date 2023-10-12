@@ -49,7 +49,7 @@ package com.Pageobjects;
 			checkbox.click();
 			//Thread.sleep(15000);
 			Thread.sleep(2000);
-			signup.click();
+			//signup.click();
 			
 			return new Homepage();
 		}
