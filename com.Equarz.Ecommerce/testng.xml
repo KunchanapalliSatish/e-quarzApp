@@ -7,6 +7,8 @@
   <test thread-count="5" name="Test">
 	  <classes>
 		  <class name="com.Equarz.Testcases.LoginTest"></class>
+		  <class name="com.Equarz.Testcases.WishlistTest"></class>
+		  
 	  </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

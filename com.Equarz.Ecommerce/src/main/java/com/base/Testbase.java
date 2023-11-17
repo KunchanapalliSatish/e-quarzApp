@@ -11,9 +11,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.Utils.Screenshots;
 import com.aventstack.extentreports.ExtentReports;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Testbase {
 
@@ -21,6 +25,8 @@ public class Testbase {
 	public static Properties props;
 	public static WebDriver driver;
 	public static WebDriverWait wait;
+	public static EventFiringWebDriver edriver;
+	Screenshots event;
 
 
 	public Testbase() {
@@ -46,8 +52,8 @@ public class Testbase {
 		String browsername = props.getProperty("browser");
 
 		if (browsername.equalsIgnoreCase("chrome")) {
-			System.setProperty("webdriver.chrome.driver","C:\\Users\\Admin\\Downloads\\chromedriver-win64 (1)\\chromedriver-win64\\chromedriver.exe");
-
+			//System.setProperty("webdriver.chrome.driver","C:\\Users\\Admin\\Downloads\\chromedriver-win64 (1)\\chromedriver-win64\\chromedriver.exe");
+             WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 		}
 
@@ -59,11 +65,15 @@ public class Testbase {
 		else if (browsername.equalsIgnoreCase("firefox")) {
 			driver = new FirefoxDriver();
 		}
+//		edriver = new EventFiringWebDriver(driver);
+//		event = new Screenshots();
+//		edriver.register(event);
+//		driver= edriver;
 
 		driver.manage().window().maximize();
-		driver.manage().timeouts().pageLoadTimeout(15,TimeUnit.SECONDS);
+		//driver.manage().timeouts().pageLoadTimeout(20,TimeUnit.SECONDS);
 		driver.get(props.getProperty("url"));
-		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 		//driver.manage().deleteAllCookies();
 
 		

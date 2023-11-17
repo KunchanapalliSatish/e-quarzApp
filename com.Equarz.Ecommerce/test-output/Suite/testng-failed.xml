@@ -8,12 +8,20 @@
     <classes>
       <class name="com.Equarz.Testcases.LoginTest">
         <methods>
-          <include name="shutdown"/>
-          <include name="verifyurl"/>
-          <include name="initialize"/>
-          <include name="verifylog"/>
+          <include name="report"/>
         </methods>
       </class> <!-- com.Equarz.Testcases.LoginTest -->
+      <class name="com.Equarz.Testcases.WishlistTest">
+        <methods>
+          <include name="footbanwishlist"/>
+          <include name="removeproduct"/>
+          <include name="deallist"/>
+          <include name="open"/>
+          <include name="initialize"/>
+          <include name="bannerwishlist"/>
+          <include name="homewishlist"/>
+        </methods>
+      </class> <!-- com.Equarz.Testcases.WishlistTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

@@ -94,7 +94,7 @@ public class Buynow_Functionality extends Testbase {
 		 payment.click();
 		 Thread.sleep(3000);
 		 COD.click();
-		 wait= new WebDriverWait(driver, 15);
+		 wait= new WebDriverWait(null, Duration.ofSeconds(15));
 		 String msg=wait.until(ExpectedConditions.visibilityOf(orderplaced)).getText();
 	 	assertEquals(msg, "Your order has been placed successfully! !");
 		 

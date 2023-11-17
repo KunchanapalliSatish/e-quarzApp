@@ -1,6 +1,9 @@
 browser=chrome
 url=http://e-quarz.com/customer/auth/login
 urlup=http://e-quarz.com/customer/auth/sign-up
+adminurl=http://e-quarz.com/admin/auth/login
+adminusername=arun@marolix.com
+adminpassword=Reset@123
 username=jakkamsairam3@gmail.com
 password=Namo@12345
 searchboxtext=laptop

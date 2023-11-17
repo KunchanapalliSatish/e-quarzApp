@@ -1,6 +1,11 @@
 package com.Equarz.Testcases;
 
+import java.awt.Desktop;
+import java.io.File;
+import java.io.IOException;
+
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -39,5 +44,14 @@ public class SearchTest extends Testbase {
 	public void shutdown() {
 		driver.close();
 	}
+   @AfterSuite
+	
+	public void report() throws IOException, InterruptedException {
+	   Desktop.getDesktop().browse(new File("Extent.html").toURI());
+		 //Desktop.getDesktop().browse(new File("C:/Users/Admin/git/Equarz/com.Equarz.Ecommerce/test-output/Extent.html").toURI());
+		 Thread.sleep(3000);
+		 driver.navigate().refresh();
+	//file:///C:/Users/Admin/git/Equarz/com.Equarz.Ecommerce/test-output/Extent.html
 
+}
 }

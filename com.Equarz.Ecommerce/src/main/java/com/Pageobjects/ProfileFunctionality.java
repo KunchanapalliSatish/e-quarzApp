@@ -8,8 +8,7 @@ package com.Pageobjects;
 	import org.openqa.selenium.interactions.Actions;
 	import org.openqa.selenium.support.FindBy;
 	import org.openqa.selenium.support.PageFactory;
-
-	import com.Utils.Utils;
+    import com.Utils.Utils;
 	import com.base.Testbase;
 
 	public class ProfileFunctionality extends Testbase {

@@ -95,7 +95,7 @@ import org.openqa.selenium.Alert;
     	Waterbottles.click();
     	Bottle.click();
     	addcart.click();
-    	wait=new WebDriverWait(driver, 10);
+    	wait=new WebDriverWait(null, Duration.ofSeconds(10));
     	String msg=wait.until(ExpectedConditions.visibilityOf(success)).getText();
     	assertEquals("Successfully added!", msg);
     	return new Homepage();
@@ -105,7 +105,7 @@ import org.openqa.selenium.Alert;
     	
     	
     	Slide.click();  	
-    	wait=new WebDriverWait(driver, 15);
+    	wait=new WebDriverWait(null, Duration.ofSeconds(10));
     	wait.until(ExpectedConditions.elementToBeClickable(banner));
     	banner.click();
     	Phant.click();
@@ -120,7 +120,7 @@ import org.openqa.selenium.Alert;
 	   footban.click();
 	   Jeans.click();
 	   addcart.click();
-	   wait= new WebDriverWait(driver, 15);
+	   wait=new WebDriverWait(null, Duration.ofSeconds(10));
 		 String msg=wait.until(ExpectedConditions.visibilityOf(success)).getText();
 	 	assertEquals("Successfully added!", msg);
 	 	
@@ -131,7 +131,7 @@ import org.openqa.selenium.Alert;
 		
 		   dealbuy.click();
 		   addcart.click();
-		   wait= new WebDriverWait(driver, 15);
+		   wait=new WebDriverWait(null, Duration.ofSeconds(10));
 			 String msg=wait.until(ExpectedConditions.visibilityOf(success)).getText();
 		 	assertEquals("Successfully added!", msg);
 		 	
@@ -141,7 +141,7 @@ import org.openqa.selenium.Alert;
 		
 		homepageproduct.click();
 		addcart.click();
-		wait= new WebDriverWait(driver, 15);
+		wait=new WebDriverWait(null, Duration.ofSeconds(10));
 		 String msg=wait.until(ExpectedConditions.visibilityOf(success)).getText();
 	 	assertEquals("Successfully added!", msg);
 	 	
@@ -154,7 +154,7 @@ import org.openqa.selenium.Alert;
 		Searchproduct.clear();
 		Thread.sleep(3000);
 		addcart.click();
-		 wait= new WebDriverWait(driver, 15);
+		wait=new WebDriverWait(null, Duration.ofSeconds(10));
 		 String msg=wait.until(ExpectedConditions.visibilityOf(success)).getText();
 	 	assertEquals("Successfully added!", msg);
 	 
@@ -164,7 +164,7 @@ import org.openqa.selenium.Alert;
 		wishlist.click();
 		wishlistproduct.click();
 		addcart.click();
-		 wait= new WebDriverWait(driver, 15);
+		wait=new WebDriverWait(null, Duration.ofSeconds(10));
 		 String msg=wait.until(ExpectedConditions.visibilityOf(success)).getText();
 	 	assertEquals("Successfully added!", msg);
 	 	
